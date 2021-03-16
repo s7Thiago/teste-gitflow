@@ -14,7 +14,7 @@ jobs:
 
       - name: Rodando script de várias linhas
         run: |
-        echo Esta é a primeira saída desta ação
-        echo Esta é outra saída desta ação
+          echo Esta é a primeira saída desta ação
+          echo Esta é outra saída desta ação
 
   
