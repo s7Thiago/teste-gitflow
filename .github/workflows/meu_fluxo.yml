@@ -10,10 +10,10 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Rodando um script de 1 linha
-      run: echo Olá Mundo CI/CD
+        run: echo Olá Mundo CI/CD
 
       - name: Rodando script de várias linhas
-      run: |
+        run: |
         echo Esta é a primeira saída desta ação
         echo Esta é outra saída desta ação
 
