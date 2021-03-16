@@ -11,40 +11,40 @@ jobs:
         
   deploy-dev:
     runs-on: ubuntu-latest
+     # cria uma hierarquia ao especificar do job do qual este depende, nesse caso, build precisa rodar antes de deploy-dev
+    needs: build
     # Especifica que este job roda no ambiente dev com uma url setada para a aplicação
     environment: 
       name: dev
-      url: 'thiagosilvadev.com'
-    # cria uma hierarquia ao especificar do job do qual este depende, nesse caso, build precisa rodar antes de deploy-dev
-    needs: build
+      url: 's7thiago.github.io'
     steps:
-      - uses: actions/checkout@v2
       - name: Run a one-line script
         run: echo Realizando o deploy-dev
         
   deploy-hom:
     runs-on: ubuntu-latest
+     # cria uma hierarquia ao especificar do job do qual este depende, nesse caso, deploy-dev precisa rodar antes de deploy-hom
+    needs: [deploy-dev]
     # Especifica que este job roda no ambiente dev com uma url setada para a aplicação
     environment: 
       name: hom
-      url: 'thiagosilvadev.com'
-    # cria uma hierarquia ao especificar do job do qual este depende, nesse caso, deploy-dev precisa rodar antes de deploy-hom
-    needs: deploy-dev
+      url: 's7thiago.github.io'
     steps:
-      - uses: actions/checkout@v2
-      - name: Realizando o deploy-hom
-      
+      - name: Run a one-line script
+        run: echo Realizando o deploy-hom
+        
   deploy-prod:
     runs-on: ubuntu-latest
+     # cria uma hierarquia ao especificar do job do qual este depende, nesse caso, deploy-hom precisa rodar antes de deploy-prod
+    needs: [deploy-hom]
     # Especifica que este job roda no ambiente dev com uma url setada para a aplicação
     environment: 
       name: prod
-      url: 'thiagosilvadev.com'
-    # cria uma hierarquia ao especificar do job do qual este depende, nesse caso, deploy-hom precisa rodar antes de deploy-prod
-    needs: deploy-hom
+      url: 's7thiago.github.io'
     steps:
-      - uses: actions/checkout@v2
       - name: Run a one-line script
         run: echo Realizando o deploy-prod
+        
+        
 
 
