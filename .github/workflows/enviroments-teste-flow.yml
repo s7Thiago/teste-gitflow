@@ -33,7 +33,7 @@ jobs:
       url: 'thiagosilvadev.com'
     steps:
       - uses: actions/checkout@v2
-      - name: Run a one-line script
+      - name: Realizando o deploy-hom
       
   deploy-prod:
     # cria uma hierarquia ao especificar do job do qual este depende, nesse caso, deploy-hom precisa rodar antes de deploy-prod
@@ -46,19 +46,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run a one-line script
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-        run: echo Realizando o deploy-dev
-        
+        run: echo Realizando o deploy-prod
+
+
