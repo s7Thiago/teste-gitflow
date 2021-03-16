@@ -1,0 +1,64 @@
+name: TesteAmbientes
+on:
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a one-line script
+        run: echo Hello, world!
+        
+  deploy-dev:
+    # cria uma hierarquia ao especificar do job do qual este depende, nesse caso, build precisa rodar antes de deploy-dev
+    needs: [build]
+    runs-on: ubuntu-latest
+    # Especifica que este job roda no ambiente dev com uma url setada para a aplicação
+    environment: 
+      name: dev
+      url: 'thiagosilvadev.com'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a one-line script
+        run: echo Realizando o deploy-dev
+        
+  deploy-hom:
+    # cria uma hierarquia ao especificar do job do qual este depende, nesse caso, deploy-dev precisa rodar antes de deploy-hom
+    needs: [deploy-dev]
+    runs-on: ubuntu-latest
+    # Especifica que este job roda no ambiente dev com uma url setada para a aplicação
+    environment: 
+      name: hom
+      url: 'thiagosilvadev.com'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a one-line script
+      
+  deploy-prod:
+    # cria uma hierarquia ao especificar do job do qual este depende, nesse caso, deploy-hom precisa rodar antes de deploy-prod
+    needs: [deploy-hom]
+    runs-on: ubuntu-latest
+    # Especifica que este job roda no ambiente dev com uma url setada para a aplicação
+    environment: 
+      name: prod
+      url: 'thiagosilvadev.com'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a one-line script
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        run: echo Realizando o deploy-dev
+        
