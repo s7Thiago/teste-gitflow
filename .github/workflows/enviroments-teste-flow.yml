@@ -16,7 +16,7 @@ jobs:
     # Especifica que este job roda no ambiente dev com uma url setada para a aplicação
     environment: 
       name: dev
-      url: 's7thiago.github.io'
+      url: 'https://s7thiago.github.io/#/'
     steps:
       - name: Run a one-line script
         run: echo Realizando o deploy-dev
@@ -28,7 +28,7 @@ jobs:
     # Especifica que este job roda no ambiente dev com uma url setada para a aplicação
     environment: 
       name: hom
-      url: 's7thiago.github.io'
+      url: 'https://s7thiago.github.io/#/'
     steps:
       - name: Run a one-line script
         run: echo Realizando o deploy-hom
@@ -40,7 +40,7 @@ jobs:
     # Especifica que este job roda no ambiente dev com uma url setada para a aplicação
     environment: 
       name: prod
-      url: 's7thiago.github.io'
+      url: 'https://s7thiago.github.io/#/'
     steps:
       - name: Run a one-line script
         run: echo Realizando o deploy-prod
