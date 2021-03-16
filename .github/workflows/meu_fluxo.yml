@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Configurando o node js
+        uses: actions/setup-node@v2.1.5
+
       - uses: actions/checkout@v1
 
       - name: Rodando um script de 1 linha
@@ -16,5 +19,3 @@ jobs:
         run: |
           echo Esta é a primeira saída desta ação
           echo Esta é outra saída desta ação
-
-  
