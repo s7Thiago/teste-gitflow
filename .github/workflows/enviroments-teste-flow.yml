@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Run a one-line script
         run: echo Realizando o deploy-dev
-        
+
   deploy-hom:
     runs-on: ubuntu-latest
      # cria uma hierarquia ao especificar do job do qual este depende, nesse caso, deploy-dev precisa rodar antes de deploy-hom
@@ -30,9 +30,9 @@ jobs:
       name: hom
       url: 'https://s7thiago.github.io/#/'
     steps:
-      - name: Run a one-line script
-        run: echo Realizando o deploy-hom
-        
+      - uses: actions/checkout@v2
+      - name: echo Realizando o deploy-hom
+      
   deploy-prod:
     runs-on: ubuntu-latest
      # cria uma hierarquia ao especificar do job do qual este depende, nesse caso, deploy-hom precisa rodar antes de deploy-prod
@@ -45,6 +45,3 @@ jobs:
       - name: Run a one-line script
         run: echo Realizando o deploy-prod
         
-        
-
-
